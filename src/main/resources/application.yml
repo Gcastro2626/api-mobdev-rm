@@ -1,0 +1,11 @@
+# Application base configuration
+server:
+  port: 8080
+spring:
+  application:
+    name: hsd-base-download
+  profile:
+    active: local
+# Ricky y Morty api 
+api-rm:
+  url: http://rickandmortyapi.com/api/
