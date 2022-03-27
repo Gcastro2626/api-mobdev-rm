@@ -3,13 +3,13 @@ package com.mobdev.apimobdevrm.model;
 
 public class RequestRm {
 
-	public String id;
+	public int id;
 
-	public String getId() {
+	public int getId() {
 		return id;
 	}
 
-	public void setId(String id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 

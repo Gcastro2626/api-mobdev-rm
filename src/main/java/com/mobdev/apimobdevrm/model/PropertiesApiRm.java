@@ -3,14 +3,16 @@ package com.mobdev.apimobdevrm.model;
 
 public class PropertiesApiRm {
 	
-	public String url;
+	public String ApiUrl;
 
-	public String getUrl() {
-		return url;
+	public String getApiUrl() {
+		return ApiUrl;
 	}
 
-	public void setUrl(String url) {
-		this.url = url;
+	public void setApiUrl(String apiUrl) {
+		ApiUrl = apiUrl;
 	}
+
+	
 
 }

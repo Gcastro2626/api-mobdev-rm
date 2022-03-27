@@ -10,13 +10,14 @@ import com.mobdev.apimobdevrm.model.RequestRm;
 
 @RestController
 public class RmController {
+
 	
 	@Autowired
 	private RmService rmService;
 
-	@GetMapping(path = "/RickMorty", produces = "application/json")
+	@GetMapping(path = "/getRm", produces = "application/json")
 	public ResponseEntity<?> getRickMorty(@RequestBody RequestRm requestRm) throws Exception {
 		ResponseEntity<?> response = rmService.getRickMorty(requestRm);
-		return ResponseEntity.ok(response);
+		return response;
 	}
 }

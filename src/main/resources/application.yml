@@ -1,11 +1,9 @@
 # Application base configuration
 server:
-  port: 8080
+  port: 80
 spring:
   application:
-    name: hsd-base-download
-  profile:
-    active: local
+    name: api-mobdev-rm  
 # Ricky y Morty api 
 api-rm:
-  url: http://rickandmortyapi.com/api/
+  ApiUrl: http://rickandmortyapi.com/api/
