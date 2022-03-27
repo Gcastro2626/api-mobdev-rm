@@ -15,7 +15,7 @@ public class RmController {
 	@Autowired
 	private RmService rmService;
 
-	@GetMapping(path = "/getRm", produces = "application/json")
+	@GetMapping(path = "/getRickMorty", produces = "application/json")
 	public ResponseEntity<?> getRickMorty(@RequestBody RequestRm requestRm) throws Exception {
 		ResponseEntity<?> response = rmService.getRickMorty(requestRm);
 		return response;

@@ -1,6 +1,6 @@
 # Application base configuration
 server:
-  port: 80
+  port: 8080
 spring:
   application:
     name: api-mobdev-rm  
