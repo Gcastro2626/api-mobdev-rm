@@ -34,13 +34,14 @@ public class RmServiceImpl implements RmService {
 				String resultLocation = rmFacade.getRickMortyLocation(requestRm);
 				result = rmConverter.responseRmConverter(resultCharacter, resultLocation);
 				if (!Objects.isNull(result)) {
-					response = ResponseEntity.status(HttpStatus.OK).body(result);
+					response = ResponseEntity.status(HttpStatus.OK).
+							   body(result);
 				} else {
 					Error error = new Error();
 					error.setLocation(resultLocation);
 					error.setCharacter(resultCharacter);
 					response = ResponseEntity.status(HttpStatus.NOT_FOUND)
-							.body(error);
+							   .body(error);
 				}
 		} catch (Exception e) {
 			response = ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(e.toString());

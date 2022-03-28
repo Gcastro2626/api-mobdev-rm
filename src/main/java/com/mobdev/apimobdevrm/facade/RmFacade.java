@@ -29,47 +29,52 @@ public class RmFacade {
 	public RmFacade(RestTemplateBuilder restTemplateBuilder) {
 		this.restTemplate = restTemplateBuilder.build();
 	}
-	//Call service rickyMorty Character
-	public String getRickMortyCharacter(RequestRm requestrm) throws JSONException  {
+
+	// Call service rickyMorty Character
+	public String getRickMortyCharacter(RequestRm requestrm) throws JSONException {
 		String response = "";
 		try {
 			HttpHeaders headers = generateHeaders();
 			HttpEntity<Void> requestEntity = new HttpEntity<>(headers);
-			ResponseEntity<?>  resultApi = restTemplate.exchange(propertiesConfig.propertiesApiRm().getApiUrl().concat("character/"+requestrm.getId()),HttpMethod.GET,requestEntity,
-			String.class);
-			response  = resultApi.getBody().toString();
+			ResponseEntity<?> resultApi = restTemplate.exchange(
+					propertiesConfig.propertiesApiRm().getApiUrl().concat("character/" + requestrm.getId()),
+					HttpMethod.GET, requestEntity,
+					String.class);
+			response = resultApi.getBody().toString();
 		} catch (HttpStatusCodeException e) {
-			logger.error("Error consuming service api rickyMorty "+ e.getMessage());
-			response  =  e.getMessage();
-        } catch (Exception ex) {
-			logger.error("Error consuming service api rickyMorty "+ ex.getMessage());
+			logger.error("Error consuming service api rickyMorty " + e.getMessage());
+			response = e.getMessage();
+		} catch (Exception ex) {
+			logger.error("Error consuming service api rickyMorty " + ex.getMessage());
 		}
 		return response;
 	}
 
-	//Call service rickyMorty Location
+	// Call service rickyMorty Location
 	public String getRickMortyLocation(RequestRm requestrm) {
 		String response = "";
 		try {
 			HttpHeaders headers = generateHeaders();
 			HttpEntity<Void> requestEntity = new HttpEntity<>(headers);
-			ResponseEntity<?>  resultApi = restTemplate.exchange(propertiesConfig.propertiesApiRm().getApiUrl().concat("location/"+requestrm.getId()),HttpMethod.GET,requestEntity,
-			String.class);
-			response  = resultApi.getBody().toString();
+			ResponseEntity<?> resultApi = restTemplate.exchange(
+					propertiesConfig.propertiesApiRm().getApiUrl().concat("location/" + requestrm.getId()),
+					HttpMethod.GET, requestEntity,
+					String.class);
+			response = resultApi.getBody().toString();
 		} catch (HttpStatusCodeException e) {
-			response  =  e.getMessage();
-			logger.error("Error consuming service api rickyMorty "+ e.getMessage());
+			response = e.getMessage();
+			logger.error("Error consuming service api rickyMorty " + e.getMessage());
 		} catch (Exception ex) {
-			logger.error("Error consuming service api rickyMorty "+ ex.getMessage());
+			logger.error("Error consuming service api rickyMorty " + ex.getMessage());
 		}
 		return response;
 	}
-	
+
+	// Generate headers for service
 	private HttpHeaders generateHeaders() {
 		HttpHeaders headers = new HttpHeaders();
 		headers.setContentType(MediaType.APPLICATION_JSON);
 		return headers;
 	}
-	
-	
+
 }
